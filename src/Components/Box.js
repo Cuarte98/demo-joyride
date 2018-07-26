@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import JoyRide from 'react-joyride'
 import Tooltip from './Tooltip';
 
 class Box extends Component {
@@ -20,7 +19,7 @@ class Box extends Component {
     
     
     render() {
-        if(this.props.color == 'red'){
+        if(this.props.color === 'red'){
             
         }
         const boxStyle = { 
@@ -31,7 +30,6 @@ class Box extends Component {
          }
         return (
             <div className={'box-' + this.props.color} style={boxStyle}>
-                {/* <JoyRide steps={this.state.steps} run={true} /> */}
             </div>
         )
     }

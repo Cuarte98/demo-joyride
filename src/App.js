@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import JoyRide from 'react-joyride'
-
-import Tooltip from './Components/Tooltip';
 import Header from './Components/Header';
 import Aside from './Components/Aside';
 import Main from './Components/Main'
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {

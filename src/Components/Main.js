@@ -4,7 +4,6 @@ import Tooltip from './Tooltip'
 import Box from './Box'
 import './styles.css'
 
-
 class Main extends Component {
     constructor(props) {
         super(props)
@@ -13,32 +12,42 @@ class Main extends Component {
             toggleGreen: true,
             toggleBlue: true,
             toggleWT: false,
+            activeStep: '',
             data: this.props.data,
             config: {
                 run: true,
-                steps: [
-                    {
-                        target: '.box-red',
-                        content: <Tooltip title={this.props.color} content='Primer Tooltip' />,
-                        placement: 'bottom'
-                    },
-                    {
-                        target: '.box-blue',
-                        content: <Tooltip title={this.props.color} content='Segundo tooltip' />,
-                        placement: 'bottom'
-                    },
-                    {
-                        target: '.box-green',
-                        content: <Tooltip title={this.props.color} content='Tercer tooltip' />,
-                        placement: 'bottom'
-                    }
-                ]
+                steps: []
             }
-
         }
-
     }
 
+    componentDidUpdate(prevProps){
+        if(prevProps.data !== this.props.data){
+            this.setState({
+                data: this.props.data,
+            })
+        }
+    }
+
+    setStepRGB = () => {
+        this.setState({
+            config:{
+                ...this.state.config,
+                steps: this.state.data.rgb.steps
+            },
+            activeStep: 'rgb'
+        })
+    }
+
+    setStepRBG = () => {
+        this.setState({
+            config:{
+                ...this.state.config,
+                steps: this.state.data.rbg.steps
+            },
+            activeStep: 'rbg'
+        })
+    }
 
     activateRed = () => {
         this.setState({
@@ -83,25 +92,8 @@ class Main extends Component {
     }
 
     render() {
-        const { toggleRed, toggleBlue, toggleGreen, toggleWT, config } = this.state;
+        const {activeStep, toggleRed, toggleBlue, toggleGreen, toggleWT, config } = this.state;
 
-        const stepRBG = [
-            {
-                target: '.box-red',
-                content: <Tooltip title={this.props.color} content='Primer Tooltip' />,
-                placement: 'bottom'
-            },
-            {
-                target: '.box-blue',
-                content: <Tooltip title={this.props.color} content='Segundo tooltip' />,
-                placement: 'bottom'
-            },
-            {
-                target: '.box-green',
-                content: <Tooltip title={this.props.color} content='Tercer tooltip' />,
-                placement: 'bottom'
-            }
-        ]
         return (
             <main>
                 {toggleWT ? <JoyRide run={config.run} steps={config.steps} /> : null}
@@ -118,6 +110,9 @@ class Main extends Component {
                         <button onClick={this.activateGreen} >Toggle Green</button>
                         <button onClick={this.activateWT} >Toggle WalkThrough</button>
                         <button onClick={this.toggleRun} >Toggle Run</button>
+                        <button onClick={this.setStepRGB} >Toggle StepRGB</button>
+                        <button onClick={this.setStepRBG} >Toggle StepRBG</button>
+
                     </div>
                     <div className="keystate">
                         <p>Red box mount: {toggleRed.toString()}</p>
@@ -126,9 +121,9 @@ class Main extends Component {
 
                         <p>Walkthrough mount: {toggleWT.toString()}</p>
                         <p>Walkthrough run: {config.run.toString()}</p>
+                        <p>Active step: {activeStep}</p>
                     </div>
                 </div>
-
             </main>
         )
     }
