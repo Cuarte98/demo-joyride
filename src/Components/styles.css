@@ -1,0 +1,70 @@
+.header {
+    height: 20%;
+    width: 100%;
+    background-color: gray;
+    border: 1px gray solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header input {
+    position: absolute;
+    right: 30px;
+}
+
+aside {
+    background-color: blueviolet;
+    width: 10%;
+    height: 80%;
+    border: 1px blueviolet solid;
+    display: inline-block;
+    position: relative;
+}
+ul {
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+}
+
+main {
+    position: relative;
+    width: 89%;
+}
+
+.boxContainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+    margin: 20px
+}
+
+.appState {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 20px;
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.keypad {
+    position: relative;
+    width: 49%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around
+}
+
+.keystate {
+    position: relative;
+    width: 49%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.keystate p{
+    width: 50%
+}
