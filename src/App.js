@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    fetch('http://www.mocky.io/v2/5b59dec52f0000fb2a5f960d')
+    fetch('http://www.mocky.io/v2/5b5b22103100006f009a8aec')
     .then((response)=>(
       response.json()
     ))

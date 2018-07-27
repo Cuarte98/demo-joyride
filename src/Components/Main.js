@@ -95,13 +95,13 @@ class Main extends Component {
         const {activeStep, toggleRed, toggleBlue, toggleGreen, toggleWT, config } = this.state;
 
         return (
-            <main>
+            <div className="main">
                 {toggleWT ? <JoyRide run={config.run} steps={config.steps} /> : null}
                 <h2> Body </h2>
                 <div className="boxContainer">
                     {toggleRed ? <Box color="red" /> : null}
-                    {toggleBlue ? <Box color="blue" /> : null}
                     {toggleGreen ? <Box color="green" /> : null}
+                    {toggleBlue ? <Box color="blue" /> : null}
                 </div>
                 <div className="appState">
                     <div className="keypad">
@@ -124,7 +124,7 @@ class Main extends Component {
                         <p>Active step: {activeStep}</p>
                     </div>
                 </div>
-            </main>
+            </div>
         )
     }
 }
