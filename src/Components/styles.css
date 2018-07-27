@@ -32,13 +32,10 @@ ul {
     width: 89%;
 }
 
+
 .boxContainer {
     display: flex;
     justify-content: space-around;
-}
-
-button {
-    margin: 20px
 }
 
 .appState {
@@ -48,6 +45,10 @@ button {
     position: relative;
     width: 100%;
     display: flex;
+}
+
+.appState button {
+    margin: 20px
 }
 
 .keypad {

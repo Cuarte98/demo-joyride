@@ -96,7 +96,7 @@ class Main extends Component {
 
         return (
             <div className="main">
-                {toggleWT ? <JoyRide run={config.run} steps={config.steps} /> : null}
+                {toggleWT ? <JoyRide run={config.run} steps={config.steps} /> : <div></div>}
                 <h2> Body </h2>
                 <div className="boxContainer">
                     {toggleRed ? <Box color="red" /> : null}
